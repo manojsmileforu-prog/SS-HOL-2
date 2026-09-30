@@ -1,0 +1,17 @@
+#include<stdio.h>
+#include<unistd.h>
+int main(){
+char buff[20]="hello";
+char buff1[sizeof(buff)];
+int fd[2],fd1[2];
+pipe(fd);
+pipe(fd1);
+close(fd[0]);
+close(fd[1]);
+write(fd[1],buff,sizeof(buff));
+read(fd[0],buff1,sizeof(buff));
+printf("%s",buff1);
+
+
+
+}
